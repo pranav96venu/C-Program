@@ -1,3 +1,7 @@
+/*
+    Implement a function that merges two sorted arrays into a third array using pointers
+*/
+
 #include <stdio.h>
 
 void merge(int *c, int* d, int size_a, int size_b)
