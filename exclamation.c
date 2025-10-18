@@ -10,8 +10,7 @@ int main()
     char input[30] = "Hello. How ! are !! you !!!";
     char output[50];
     int j = 0;
-    int length = strlen(input);
-    for(int i=0;i<length;i++,j++)
+    for(int i=0;input[i]!='\0';i++,j++)
     {
         if(input[i]=='.')
             output[j] = '!';
@@ -32,6 +31,7 @@ int main()
             output[j] = input[i];
         } 
     }
+    output[++j] = '\0';
     printf("Input: %s \n",input);
     printf("Input: %s",output);
     return 0;
