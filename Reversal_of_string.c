@@ -13,27 +13,26 @@ void reverse(char a[], int beg, int last)
         last--;
     }
 }
-void reverse_sent(char a[], int size)
+void reverse_sent(char a[])
 {
     int start=0, end=0;
-    for(start = end; a[end]!='\0'; end++)
+    while(1)
     {
-        
-        if(a[end]!=' ' && a[end]!='\0')
+        if(a[end]==' ' || a[end]=='\0')
         {
-            continue;
-        }
-        else{
             reverse(a,start,end-1);
             start = end+1;
         }
+        if(a[end]=='\0')
+            break;
+        end++;
     }
 }
 void reverse_string(char a[], int size)
 {
     reverse(a, 0, size-1);
     printf("After reversal 1 : %s \n",a);
-    reverse_sent(a, size);
+    reverse_sent(a);
 }
 int main()
 {
@@ -42,8 +41,13 @@ int main()
     printf("enter string or word \n");
     fgets(a,sizeof(a),stdin);
     size = strlen(a);
+    if (a[size-1] == '\n')
+    {
+        a[size-1] = '\0';
+        size--;
+    }
     printf("Before reversal: %s \n",a);
-    reverse_string(a,size-1);
+    reverse_string(a,size);
     printf("After reversal : %s \n",a);
     return 0;
 }
